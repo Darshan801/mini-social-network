@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 # Create your views here.
 def home(request):
-    return HttpResponse('this is index page')
+    return HttpResponse("Accounts app is working ✅")
