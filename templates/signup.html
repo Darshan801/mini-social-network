@@ -1,22 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container mt-5">
-  <h2 class="text-center underline-success">signup here</h2>
+<div class="form_card py-2 px-3 m-2">
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                 aria-label="Close">
+                
+                </button>
+        </div>
+    
+    {% endfor %}
+<div class="container mt-5 p-4 col-12 col-lg-4 col-md-6 border">
+  <h2 class="text-center">signup here</h2>
  <form action="/signup/" method="POST">
   {% csrf_token %}
   <div class="mb-3">
-    <label for="email" class="form-label">Email address</label>
+    <label for="email" class="form-label">Email address: </label>
     <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" required>
     
   </div>
   <div class="mb-3">
-    <label for="pass1" class="form-label">Password</label>
-    <input type="password" class="form-control" name="pass1" id="pass1" required>
+    <label for="pass1" class="form-label">Password: </label>
+    <input type="password" class="form-control" name="pass1" id="pass1" placeholder="Enter your password" required>
   </div>
   <div class="mb-3">
-    <label for="pass2" class="form-label"> confirm Password</label>
-    <input type="password" class="form-control" name="pass2" id="pass2" required>
+    <label for="pass2" class="form-label"> confirm Password: </label>
+    <input type="password" class="form-control" name="pass2" id="pass2" placeholder="re-enter password" required>
   </div>
   
  
