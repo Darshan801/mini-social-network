@@ -43,7 +43,10 @@
             bg-white border border-gray-200 shadow-md">
     <div class="flex items-center gap-4">
       <img src="" class="h-10 w-10 rounded-full object-cover hover:bg-gray-100 transition" alt="profile">
-      <button class="px-4 py-2 w-full text-sm font-medium border border-gray-300 rounded-full text-left hover:bg-gray-100 transition">Whats on your mind, username?</button>
+      <a href="/createpost" class="px-4 py-2 w-full text-sm font-medium border border-gray-300 rounded-full text-left hover:bg-gray-100 transition block text-center">
+  Whats on your mind,<span class="font-semibold"> {{request.user.username}}?</span>
+</a>
+
     </div>
   </div>
 
@@ -64,7 +67,7 @@
 
       <div>
         <h2 class="text-sm font-semibold">
-          Profile Name
+          {{user.username}}
         </h2>
 
         <h3 class="text-base font-medium text-gray-900 mt-1">
