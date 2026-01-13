@@ -30,6 +30,14 @@
      </div>
 </nav>
 
+
+
+
+{% load static %}
+
+
+
+<!-- post section -->
 <section>
   <div class="mt-10 mx-auto w-full max-w-3xl p-4 rounded-lg 
             bg-white border border-gray-200 shadow-md">
@@ -38,6 +46,211 @@
       <button class="px-4 py-2 w-full text-sm font-medium border border-gray-300 rounded-full text-left hover:bg-gray-100 transition">Whats on your mind, username?</button>
     </div>
   </div>
+
+
+{% for post in posts %}
+<div class="mt-10 mx-auto w-full max-w-3xl p-4 rounded-xl 
+            bg-white border border-gray-200 shadow-md">
+  
+  <div class="flex justify-between items-start gap-4">
+
+    <!-- Left Section -->
+    <div class="flex gap-3">
+
+      <img src="" 
+           class="h-10 w-10 rounded-full object-cover 
+                  hover:bg-gray-100 transition" 
+           alt="profile">
+
+      <div>
+        <h2 class="text-sm font-semibold">
+          Profile Name
+        </h2>
+
+        <h3 class="text-base font-medium text-gray-900 mt-1">
+          Coding tips January 19
+        </h3>
+
+        <p class="text-xs text-gray-500 mt-1">
+          9m ·
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="text-gray-500 cursor-pointer hover:text-gray-700">
+      <div class="cursor-pointer text-gray-500 hover:text-red-500 transition">
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       class="h-5 w-5" fill="none" viewBox="0 0 24 24" 
+       stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" 
+          d="M6 18L18 6M6 6l12 12" />
+  </svg>
+</div>
+
+    </div>
+
+
+  </div>
+
+  <!-- content and post image section -->
+   <!-- Content Bio -->
+<p class="text-gray-700 text-sm leading-relaxed mb-4">
+ {{ post.profile_bio }}
+  <span class="font-semibold text-blue-600 cursor-pointer hover:underline">
+    See more...
+  </span>
+</p>
+
+<!-- Content Image -->
+<img
+  class="w-full max-h-[420px] object-cover rounded-lg border mb-4 cursor-pointer"
+  src="{{ post.profile_image.url }}"
+  alt="content-image"
+/>
+
+<hr class="border-gray-200">
+
+<!-- Action Buttons -->
+<div class="flex justify-between mt-4 text-gray-600">
+
+  <!-- Like Button -->
+  <button
+    class="flex items-center gap-2 px-3 py-2 rounded-md 
+           hover:bg-gray-100 transition">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         class="h-5 w-5"
+         fill="none" viewBox="0 0 24 24"
+         stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round"
+            d="M14 9V5a3 3 0 00-6 0v4H5a2 2 0 00-2 2l1 9a2 2 0 002 2h11a2 2 0 002-2l1-7a2 2 0 00-2-2h-4z" />
+    </svg>
+    <span class="text-sm font-medium">Like</span>
+  </button>
+
+  <!-- Comment Button -->
+  <button
+    class="flex items-center gap-2 px-3 py-2 rounded-md 
+           hover:bg-gray-100 transition">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         class="h-5 w-5"
+         fill="none" viewBox="0 0 24 24"
+         stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round"
+            d="M8 10h8m-8 4h5m-9 6l3-3h10a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v11l3-3z" />
+    </svg>
+    <span class="text-sm font-medium">Comment</span>
+  </button>
+
+</div>
+
+
+</div>
+ {% empty %}
+     <p class="text-center mt-10 text-gray-500">No posts available.</p>
+  {% endfor %}
+
+<div class="mt-10 mx-auto w-full max-w-3xl p-4 rounded-xl 
+            bg-white border border-gray-200 shadow-md">
+  
+  <div class="flex justify-between items-start gap-4">
+
+    <!-- Left Section -->
+    <div class="flex gap-3">
+
+      <img src="" 
+           class="h-10 w-10 rounded-full object-cover 
+                  hover:bg-gray-100 transition" 
+           alt="profile">
+
+      <div>
+        <h2 class="text-sm font-semibold">
+          Profile Name
+        </h2>
+
+        <h3 class="text-base font-medium text-gray-900 mt-1">
+          Coding tips January 19
+        </h3>
+
+        <p class="text-xs text-gray-500 mt-1">
+          9m ·
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="text-gray-500 cursor-pointer hover:text-gray-700">
+      <div class="cursor-pointer text-gray-500 hover:text-red-500 transition">
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       class="h-5 w-5" fill="none" viewBox="0 0 24 24" 
+       stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" 
+          d="M6 18L18 6M6 6l12 12" />
+  </svg>
+</div>
+
+    </div>
+
+
+  </div>
+
+  <!-- content and post image section -->
+   <!-- Content Bio -->
+<p class="text-gray-700 text-sm leading-relaxed mb-4">
+  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi rerum hic,
+  iusto necessitatibus eum assumenda? Qui eum excepturi officia hic,
+  dolore distinctio velit saepe repudiandae porro rerum obcaecati iure harum?
+  <span class="font-semibold text-blue-600 cursor-pointer hover:underline">
+    See more...
+  </span>
+</p>
+
+<!-- Content Image -->
+<img
+  class="w-full max-h-[420px] object-cover rounded-lg border mb-4"
+  src=""
+  alt="content-image"
+/>
+
+<hr class="border-gray-200">
+
+<!-- Action Buttons -->
+<div class="flex justify-between mt-4 text-gray-600">
+
+  <!-- Like Button -->
+  <button
+    class="flex items-center gap-2 px-3 py-2 rounded-md 
+           hover:bg-gray-100 transition">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         class="h-5 w-5"
+         fill="none" viewBox="0 0 24 24"
+         stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round"
+            d="M14 9V5a3 3 0 00-6 0v4H5a2 2 0 00-2 2l1 9a2 2 0 002 2h11a2 2 0 002-2l1-7a2 2 0 00-2-2h-4z" />
+    </svg>
+    <span class="text-sm font-medium">Like</span>
+  </button>
+
+  <!-- Comment Button -->
+  <button
+    class="flex items-center gap-2 px-3 py-2 rounded-md 
+           hover:bg-gray-100 transition">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         class="h-5 w-5"
+         fill="none" viewBox="0 0 24 24"
+         stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round"
+            d="M8 10h8m-8 4h5m-9 6l3-3h10a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v11l3-3z" />
+    </svg>
+    <span class="text-sm font-medium">Comment</span>
+  </button>
+
+</div>
+
+
+</div>
+
+
 </section>
   </body>
 </html>
