@@ -19,7 +19,13 @@
       <div class="nav-mid">
         <ul class="flex gap-10 text-md font-medium">
           <li><a href="" class="p-3 hover:text-blue-600 transition">Home</a></li>
-          <li><a href="" class="p-3 hover:text-blue-600 transition">Friends</a></li>
+          <li>
+            <a href="{% url 'friends:list' %}"
+              class="p-3 hover:text-blue-600 transition">
+              Friends
+            </a>
+          </li>
+
           <li><a href="" class="p-3 hover:text-blue-600 transition">Marketplace</a></li>
           <li><a href="" class="p-3 hover:text-blue-600 transition">Gaming</a></li>
         </ul>

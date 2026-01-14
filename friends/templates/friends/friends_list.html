@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+
+{% block title %}Friends{% endblock %}
+
+{% block content %}
+<h2 class="text-xl font-semibold mb-6">Find Friends</h2>
+
+{% for user in users %}
+  <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow mb-3">
+    <span>{{ user.username }}</span>
+
+    {% if user.id in sent_requests %}
+      <span class="text-gray-500">Request Sent</span>
+    {% else %}
+      <a href="{% url 'friends:add' user.id %}"
+         class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+         Add Friend
+      </a>
+    {% endif %}
+  </div>
+{% empty %}
+  <p>No users found.</p>
+{% endfor %}
+{% endblock %}
+

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Friend Requests</h2>
+
+{% for req in requests %}
+  <div style="margin-bottom: 10px;">
+    <strong>{{ req.from_user.username }}</strong>
+
+    <a href="{% url 'friends:accept' req.id %}">
+      <button>✅ Accept</button>
+    </a>
+
+    <a href="{% url 'friends:reject' req.id %}">
+      <button>❌ Reject</button>
+    </a>
+  </div>
+{% empty %}
+  <p>No new friend requests</p>
+{% endfor %}
+
+{% endblock %}
