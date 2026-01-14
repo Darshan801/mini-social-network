@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+ # include Like if it exists
 
-# Create your views here.
+def friends_home(request):
+    return HttpResponse("<h1>Friends Home Page</h1>")
+
