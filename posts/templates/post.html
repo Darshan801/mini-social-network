@@ -50,14 +50,14 @@
     <div class="flex items-center gap-4">
       <img src="" class="h-10 w-10 rounded-full object-cover hover:bg-gray-100 transition" alt="profile">
       <a href="/createpost" class="px-4 py-2 w-full text-sm font-medium border border-gray-300 rounded-full text-left hover:bg-gray-100 transition block text-center">
-  Whats on your mind,<span class="font-semibold"> {{request.user.username}}?</span>
+  Whats on your mind,<span class="font-semibold"> {{request.user.username }}?</span>
 </a>
 
     </div>
   </div>
 
 
-{% for post in posts %}
+{% for post in posts reversed %}
 <div class="mt-10 mx-auto w-full max-w-3xl p-4 rounded-xl 
             bg-white border border-gray-200 shadow-md">
   
@@ -73,9 +73,7 @@
 
       <div>
         <h2 class="text-sm font-semibold">
-          {{ user.username }}
-=======
-          {{user.username}}
+          {{ post.user.username }}
         </h2>
 
         <h3 class="text-base font-medium text-gray-900 mt-1">
@@ -89,18 +87,16 @@
     </div>
 
     <!-- Right Section -->
-    <div class="text-gray-500 cursor-pointer hover:text-gray-700">
-      <div class="cursor-pointer text-gray-500 hover:text-red-500 transition">
-  <svg xmlns="http://www.w3.org/2000/svg" 
-       class="h-5 w-5" fill="none" viewBox="0 0 24 24" 
-       stroke="currentColor" stroke-width="2">
-    <path stroke-linecap="round" stroke-linejoin="round" 
-          d="M6 18L18 6M6 6l12 12" />
-  </svg>
-</div>
-
-    </div>
-
+      <div class="text-gray-500 cursor-pointer hover:text-gray-700">
+        <div class="cursor-pointer text-gray-500 hover:text-red-500 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" 
+                class="h-5 w-5" fill="none" viewBox="0 0 24 24" 
+                stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" 
+                    d="M6 18L18 6M6 6l12 12" />
+             </svg>
+          </div>
+       </div>
 
   </div>
 
@@ -129,6 +125,7 @@
   <button
     class="flex items-center gap-2 px-3 py-2 rounded-md 
            hover:bg-gray-100 transition">
+           <a href="/likepost?post_id={{post.id}}">
     <svg xmlns="http://www.w3.org/2000/svg"
          class="h-5 w-5"
          fill="none" viewBox="0 0 24 24"
@@ -136,7 +133,8 @@
       <path stroke-linecap="round" stroke-linejoin="round"
             d="M14 9V5a3 3 0 00-6 0v4H5a2 2 0 00-2 2l1 9a2 2 0 002 2h11a2 2 0 002-2l1-7a2 2 0 00-2-2h-4z" />
     </svg>
-    <span class="text-sm font-medium">Like</span>
+    </a>
+    <span class="text-sm font-medium">{{post.like}} Like</span>
   </button>
 
   <!-- Comment Button -->
@@ -263,5 +261,8 @@
 
 
 </section>
+
+
+
   </body>
 </html>
